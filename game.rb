@@ -70,5 +70,11 @@ class SudokuWeb < Sinatra::Base
     cells_criteria
     erb :home
   end
-
+  
+  get '/hard' do
+    session.clear
+    generate_new_game(difficulty=Sudoku::HARD)
+    cells_criteria
+    erb :home
+  end
 end
